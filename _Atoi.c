@@ -21,7 +21,7 @@ int _i_active(_info_pass_t *_info)
 int delim_(char c, char *d_ptr)
 {
 	while (*d_ptr)
-	if (*d_ptr++ == c)
+		if (*d_ptr++ == c)
 		return (1);
 	return (0);
 }
