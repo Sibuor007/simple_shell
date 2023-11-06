@@ -1,104 +1,98 @@
 #include "_Shell.h"
 
 /**
- * our_exit - this exits the shell
- *
- * @info: Structure containing potential arguments.
- * This is used to maintain constant function prototype.
- *
- * Return: exit with a given status 0 if info.argv[0] != "exit"
+ * _exit - a function that exits the simple shell
+ * @info_: a structure that contains arguments
+ * Return: predetermined exit status
  */
-int our_exit(info_t *info)
-{
-	int checkexit;
 
-	if (info->argv[1]) /* if there is an exit argument */
+int _exit(_info_pass_t *info_)
+{
+	int exit_check;
+
+	if (info_->_argv[1])
 	{
-		checkexit = _erratoi(info->argv[1]);
-		if (checkexit == -1)
+		exit_check = err_atoi(info_->_argv[1]);
+		if (exit_check == -1)
 		{
-			info->status = 2;
-			print_error(info, "Illegal number: ");
-			_eputs(info->argv[1]);
-			_eputchar('\n');
+			info_->_status = 2;
+			p_error(info_, "Invalid no.: ");
+			puts_err(info_->_argv[1]);
+			putchar_err('\n');
 			return (1);
 		}
-		info->err_num = _erratoi(info->argv[1]);
+		info_->_errno = err_atoi(info_->_argv[1]);
 		return (-2);
 	}
-	info->err_num = -1;
+	info_->_errno = -1;
 	return (-2);
 }
 
 /**
- * our_cd - this changes the current directory of the process
- *
- * @info: Structure containing potential arguments.
- * This is used to maintain constant function prototype.
- *
- * Return: 0 always
+ * _cd - a function that changes directory
+ * @info_: a structure that has arguments
+ * Return: 0
  */
-int our_cd(info_t *info)
+
+int _cd(_info_pass_t *info_)
 {
-	char *s, *dir, buffer[1024];
-	int chdir_ret;
+	char *str, *d_var, buff_[1024];
+	int _chdir;
 
-	s = getcwd(buffer, 1024);
-	if (!s)
-		_puts("Error: Unable to retrieve the current working directory\n");
-	return (-1); /* TODO: check this part, totally not sure */
+	str = getcwd(buff_, 1024);
+	if (!str)
+		puts_("Error: can't retrieve dir\n");
+	return (-1);
 
-	if (!info->argv[1])
+	if (!info_->_argv[1])
 	{
-		dir = _getenv(info, "HOME=");
-		if (!dir)
-			chdir_ret = /* TODO: what should this be? */
-				chdir((dir = _getenv(info, "PWD=")) ? dir : "/");
+		d_var = get_env(info_, "HOME: ");
+		if (!d_var)
+			_chdir =
+			chdir((d_var = get_env(info_, "PWD: ")) ? d_var : "/");
 		else
-			chdir_ret = chdir(dir);
+			_chdir = chdir(d_var);
 	}
-	else if (_strcmp(info->argv[1], "-") == 0)
+	else if (str_cmp(info_->_argv[1], "-") == 0)
 	{
-		if (!_getenv(info, "OLDPWD="))
+		if (!get_env(info_, "OLD_PWD: "))
 		{
-			_puts(s);
-			_putchar('\n');
+			puts_(str);
+			putchar_('\n');
 			return (1);
 		}
-		_puts(_getenv(info, "OLDPWD=")), _putchar('\n');
-		chdir_ret = /* TODO: what should this be? */
-			chdir((dir = _getenv(info, "OLDPWD=")) ? dir : "/");
+		puts_(get_env(info_, "OLD_PWD: ")), putchar_('\n');
+		_chdir =
+		chdir((d_var = get_env(info_, "OLD_PWD: ")) ? d_var : "/");
 	}
 	else
-		chdir_ret = chdir(info->argv[1]);
-	if (chdir_ret == -1)
-	{
-		print_error(info, "can't cd to ");
-		_eputs(info->argv[1]), _eputchar('\n');
-	}
-	else
-	{
-		_setenv(info, "OLDPWD", _getenv(info, "PWD="));
-		_setenv(info, "PWD", getcwd(buffer, 1024));
-	}
+		_chdir = chdir(info_->_argv[1]);
+		if (_chdir == -1)
+		{
+			p_error(info_, "can't cd to ");
+			puts_err(info_->_argv[1]), putchar_err('\n');
+		}
+		else
+		{
+			set_env(info_, "OLD_PWD: ", get_env(info_, "PWD="));
+			set_env(info_, "PWD", getcwd(buff_, 1024));
+		}
 	return (0);
 }
 
 /**
- * our_help - this changes the current directory of the process
- *
- * @info: Structure containing potential arguments.
- * This is used to maintain constant function prototype.
- *
- * Return: 0 always
+ * _help - invokes change to the current process
+ * @info_: a structure that contains arguments
+ *  Return: 0
  */
-int our_help(info_t *info)
-{
-	char **arg_array;
 
-	arg_array = info->argv;
-	_puts("help call works. Function not yet implemented \n");
-	if (0);
-	_puts(*arg_array); /* temp att_unused workaround */
+int _help(_info_pass_t *info_)
+{
+	char **arr_args;
+
+	arr_args = info_->_argv;
+	puts_("Function implementation failed \n");
+	if (0)
+		puts_(*arr_args);
 	return (0);
 }
