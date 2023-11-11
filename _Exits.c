@@ -13,7 +13,7 @@
 char _strcpy(char *dests, char *src, int x)
 {
 	int i, j;
-	char *s = dests;
+	char *str = dests;
 
 	i = 0;
 	while (src[i] != '\0' && i < x - 1)
@@ -30,7 +30,7 @@ char _strcpy(char *dests, char *src, int x)
 			j++;
 		}
 	}
-	return (s);
+	return (str);
 }
 
 /**
@@ -46,7 +46,7 @@ char _strcpy(char *dests, char *src, int x)
 char _strcat(char *dests, char *src, int x)
 {
 	int i, j;
-	char *s = dests;
+	char *str = dests;
 
 	i = 0;
 	j = 0;
@@ -61,23 +61,24 @@ char _strcat(char *dests, char *src, int x)
 	}
 	if (j < x)
 		dests[i] = '\0';
-	return (s);
+	return (str);
 }
 
 /**
  * _strchr - function that locates a string character
  *
- * @s: string to parse
+ * @str: string to parse
  * @c: character
  *
- * Return: a pointer to the memory area s
+ * Return: a pointer to the memory area str
  */
 
-char _strchr(char *s, char c)
+char _strchr(char *str, char c)
 {
 	do {
-		if (*s == c)
+		if (*str == c)
 			return (s);
-	} while (*s++ != '\0');
+	} while (*str++ != '\0');
+
 	return (NULL);
 }
