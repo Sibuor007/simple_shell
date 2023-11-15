@@ -15,75 +15,75 @@ void puts_err(char *str)
 		return;
 	while (str[u] != '\0')
 	{
-		err_putchar (str[u]);
+		putchar_err(str[u]);
 	}
 }
 
 /**
- * err_putchar - This writes the character x to STDERR
+ * putchar_err - This writes the character x to STDERR
  *
  * @x: character to print
  *
  * Return: 1 on success, on error return -1,
  * and errno is set appropriately
  */
-int err_putchar(char x)
+int putchar_err(char x)
 {
 	static int u;
-	static char buf[WRITE_BUF_SIZE];
+	static char buf[BUFFER_SIZE_WRITE];
 
-	if (x == BUF_FLUSH || u >= WRITE_BUF_SIZE)
+	if (x == BUF_FLUSH || u >= BUFFER_SIZE_WRITE)
 	{
-		write (2, buf, u);
+		write(2, buf, u);
 		u = 0;
 	}
-	if (x != BUF_FLUSH)
+	if (x != FLUSH_BUFFER)
 		buf[i++] = x;
 	return (1);
 }
 
 /**
- * _givefd - This writes the character x to given fd
+ * put_def_f - This writes the character x to given fd
  *
- * @x: character to print
- * @fd: file descriptor
+ * @c: character to print
+ * @def_f: file descriptor
  *
  * Return: on success 1, on error -1 is returned,
  * and errno is set appropriately
  */
-int _givefd (char x, int fd)
+int put_def_f(char c, int def_f)
 {
 	static int u;
-	static char buf[WRITE_BUF_SIZE];
+	static char buf[BUFFER_SIZE_WRITE];
 
-	if (x == BUF_FLUSH || u >= WRITE_BUF_SIZE)
+	if (c == FLUSH_BUFFER || u >= BUFFER_SIZE_WRITE)
 	{
-		write (fd, buf, u);
+		write(def_f, buf, u);
 		u = 0;
 	}
-	if (x != BUF_FLUSH)
+	if (c != FLUSH_BUFFER)
 		buf[i++] = x;
 	return (1);
 }
 
 /**
- * _printfd - prints an input string
+ * puts_def_f - prints an input string
  *
- * @str: string to print
- * @fd: file descriptor
+ * @ptr_string: string to print
+ * @def_f: file descriptor
  *
  * Return: number of chars put
  */
-int _printfd(char *str, int fd)
+int puts_def_f(char *ptr_string, int def_f)
 {
 	int pr = 0;
 
-	if (!str)
+	if (!ptr_string)
 		return (0);
 
-	while (*str)
+	while (*ptr_string)
 	{
-		pr+= _printfd(*str++, fd);
+		pr += put_def_f(*ptr_string++, def_f);
 	}
 	return (pr);
 }
