@@ -1,13 +1,13 @@
 #include "_Shell.h"
 
 /**
- * _erratoi - this will convert a string to an integer
+ * err_atoi - this will convert a string to an integer
  *
  * @e: string to convert
  *
  * Return: 0 if no numbers in string, convert number -1 on error
  */
-int _erratoi(char *e)
+int err_atoi(char *e)
 {
 	int num = 0;
 	unsigned long int record = 0;
@@ -30,43 +30,43 @@ int _erratoi(char *e)
 }
 
 /**
- * err_print - This prints error messages
+ * p_error - This prints error messages
  *
- * @info: the parameter & return info struct
+ * @info_: the parameter & return info struct
  * @s: string containing specified error type
- * @error_type: tupe of error
+ * @error_type: type of error
  *
  * Return: 0 if no numbers in string, -1 if on error
  */
-void err_print(info_t *info, char *error_type, char *s)
+void p_error(_info_pass_t *info_, char *error_type, char *s)
 {
-	_errputs(info->fname);
-	_errputs(": ");
-	print_dec(info->line_count, STDERR_FILENO);
-	_errputs(": ");
-	_errputs(info->argv[0]);
-	_errputs(": ");
-	_errputs(error_type);
-	_errputs(": ");
-	_errputs(s);
+	puts_err(info_->_filename);
+	puts_err(": ");
+	p_delim(info_->_count_line, STDERR_FILENO);
+	puts_err(": ");
+	puts_err(info_->_argv[0]);
+	puts_err(": ");
+	puts_err(error_type);
+	puts_err(": ");
+	puts_err(s);
 }
 
 /**
- * print_dec - this prints a decimal number
+ * p_delim - this prints a decimal number
  *
  * @indus: input parameter
  * @fd: file descriptor
  *
  * Return: number of char to print
  */
-int print_dec(int indus, int fd)
+int p_delim(int indus, int fd)
 {
-	int (*e)(char) = _putchar;
+	int (*e)(char) = putchar_;
 	int i, record = 0;
 	unsigned int a, new;
 
 	if (fd == STDERR_FILENO)
-		e = _eputchar;
+		e = putchar_err;
 	if (indus < 0)
 	{
 		a = -indus;
@@ -95,7 +95,7 @@ int print_dec(int indus, int fd)
 }
 
 /**
- * convert_funcs - converts function, a itoa clone
+ * convert_num - converts function, a itoa clone
  *
  * @digit: integer
  * @b: base
@@ -103,7 +103,7 @@ int print_dec(int indus, int fd)
  *
  * Return: string
  */
-char *convert_funcs(long int digit, int b, int flags)
+char *convert_num(long int digit, int b, int flags)
 {
 	static char *array;
 	static char buffer[50];
@@ -111,13 +111,13 @@ char *convert_funcs(long int digit, int b, int flags)
 	char *ptr;
 	unsigned long x = digit;
 
-	if (!(flags & CONVERT_UNSIGNED) && digit < 0)
+	if (!(flags & UNSIGNED_CONVERSION) && digit < 0)
 	{
 		x = -digit;
 		u = '-';
 	}
 
-	array = flags & CONVERT_LOWERCASE ? "0123456789abcdef" : "0123456789ABCDEF";
+	array = flags & _TO_LOWERCASE ? "0123456789abcdef" : "0123456789ABCDEF";
 	ptr = '\0';
 
 	do {
@@ -131,13 +131,13 @@ char *convert_funcs(long int digit, int b, int flags)
 }
 
 /**
- * remove_comment - this removes comments, replaces '#' with '\0'
+ * rm_comments - this removes comments, replaces '#' with '\0'
  *
  * @b: string address
  *
  * Return: 0 always
  */
-void remove_comment(char *b)
+void rm_comments(char *b)
 {
 	int e;
 
