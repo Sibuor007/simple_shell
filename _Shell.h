@@ -214,6 +214,10 @@ int _help(_info_pass_t *);
 /* function prototypes for _Builtin_b.c */
 int h_history(_info_pass_t *);
 int a_alias(_info_pass_t *);
+int our_unset_alias(_info_pass_t *, char *);
+int our_set_alias(_info_pass_t *, char *);
+int _printalias(str_list_t *);
+
 
 /* function prototypes for _Getline.c */
 ssize_t g_input(_info_pass_t *);

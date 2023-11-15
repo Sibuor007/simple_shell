@@ -10,7 +10,7 @@
  */
 int h_history(_info_pass_t *info_)
 {
-	p_list(info_->history);
+	p_list(info_->_history);
 	return (0);
 }
 
@@ -18,22 +18,22 @@ int h_history(_info_pass_t *info_)
  * our_unset_alias - this removes an alias to string
  *
  * @info_: input parament struct
- * @str: alias string
+ * @ptr_string: alias string
  *
  * Return: 0 on success, 1 on error
  */
-int our_unset_alias(_info_pass_t *info_, char *str)
+int our_unset_alias(_info_pass_t *info_, char *ptr_string)
 {
 	char *s, t;
 	int i;
 
-	s = str_chr(str, '=');
+	s = str_chr(ptr_string, '=');
 	if (!s)
 		return (1);
 	t = *s; /* do you think i should remove t */
 	*s = 0;
 	i = del_node_indx(&(info_->_alias),
-			g_node_indx(info_->_alias, node_beg(info_->_alias, str, -1)));
+			g_node_indx(info_->_alias, node_beg(info_->_alias, ptr_string, -1)));
 	*s = t;
 	return (i);
 }
@@ -42,22 +42,22 @@ int our_unset_alias(_info_pass_t *info_, char *str)
  * our_set_alias - this sets an alias to string
  *
  * @info_: input parameter struct
- * @str: alias string
+ * @ptr_string: alias string
  *
  * Return: 0 on success, 1 on error
  */
-int our_set_alias(_info_pass_t *info_, char *str)
+int our_set_alias(_info_pass_t *info_, char *ptr_string)
 {
 	char *s;
 
-	s = str_chr(str, '=');
+	s = str_chr(ptr_string, '=');
 	if (!s)
 		return (1);
 	if (!*++s)
-		return (our_unset_alias(info_, str));
+		return (our_unset_alias(info_, ptr_string));
 
-	our_unset_alias(info_, str);
-	return (node_add_end(&(info_->_alias), str, 0) == NULL);
+	our_unset_alias(info_, ptr_string);
+	return (node_add_end(&(info_->_alias), ptr_string, 0) == NULL);
 }
 
 /**
@@ -73,8 +73,8 @@ int _printalias(str_list_t *node)
 
 	if (node)
 	{
-		s = str_chr(node->str, '=');
-		for (a = node->str; a <= s; a++)
+		s = str_chr(node->ptr_string, '=');
+		for (a = node->ptr_string; a <= s; a++)
 			putchar_('\'');
 		puts_(s + 1);
 		putchar_('\'');
