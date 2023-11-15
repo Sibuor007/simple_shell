@@ -3,17 +3,17 @@
 /**
  * len_list - this determines the length of a linked list
  *
- * @h: first node pointer
+ * @h_d: first node pointer
  *
  * Return: list size
  */
-size_t len_list(const str_lists_t *h)
+size_t len_list(const str_lists_t *h_d)
 {
 	size_t i = 0;
 
-	while (h)
+	while (h_d)
 	{
-		h = h->_next;
+		h_d = h_d->_next;
 		i++;
 	}
 	return (i);
@@ -26,21 +26,21 @@ size_t len_list(const str_lists_t *h)
  *
  * Return: array of strings
  */
-char **str_list(str_lists_t *head)
+char **str_list(str_lists_t *h_d)
 {
-	str_lists_t *node = head;
-	size_t i = len_list(h), j;
+	str_lists_t *node_ = h_d;
+	size_t i = len_list(h_d), j;
 	char **str;
 	char *s;
 
-	if (!head || !i)
+	if (!h_d || !i)
 		return (NULL);
 	str = malloc(sizeof(char *) * (i + 1));
 	if (!str)
 		return (NULL);
-	for (i = 0; node; node = node->_next, i++)
+	for (i = 0; node_; node_ = node_->_next, i++)
 	{
-		s = malloc(str_len(node->s) + 1);
+		s = malloc(str_len(node_->ptr_string) + 1);
 		if (!s)
 		{
 			for (j = 0; j < i; j++)
@@ -48,7 +48,7 @@ char **str_list(str_lists_t *head)
 			free(str);
 			return (NULL);
 		}
-		s = str_cpy(s, node->s);
+		s = str_cpy(s, node_->ptr_string);
 		str[i] = s;
 	}
 	str[i] = NULL;
@@ -58,22 +58,22 @@ char **str_list(str_lists_t *head)
 /**
  * p_list - prints all the elements of a list_t linked list
  *
- * @h: first node pointer
+ * @h_d: first node pointer
  *
  * Return: list size
  */
-size_t p_list(const str_lists_t *h)
+size_t p_list(const str_lists_t *h_d)
 {
 	size_t i = 0;
 
-	while (h)
+	while (h_d)
 	{
-		puts_(convert_num(h->n, 10, 0));
+		puts_(convert_num(h_d->_data, 10, 0));
 		putchar_(':');
 		putchar_(' ');
-		puts_(h->str ? h->str : "(nil)");
+		puts_(h_d->ptr_string ? h_d->ptr_string : "(nil)");
 		puts_("\n");
-		h = h->_next;
+		h_d = h_d->_next;
 		i++;
 	}
 	return (i);
@@ -94,10 +94,10 @@ str_lists_t *node_beg(str_lists_t *head, char *prefix, char next_c)
 
 	while (head)
 	{
-		mp = _start(head->str, prefix);
-		if (mp && ((next_c == -1) || (*mp == c)))
+		mp = _start(head->ptr_string, prefix);
+		if (mp && ((next_c == -1) || (*mp == next_c)))
 			return (head);
-		head = head->next;
+		head = head->_next;
 	}
 	return (NULL);
 }

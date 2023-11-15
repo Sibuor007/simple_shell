@@ -61,7 +61,7 @@ int history_read(_info_pass_t *info_)
 {
 	int x, var_0 = 0, count_line = 0;
 	ssize_t file_, rd_len, f_size = 0;
-	struct stat_ start;
+	struct stat start;
 	char *_buff = NULL, *f_name = g_history_f(info_);
 
 	if (!f_name)
@@ -72,7 +72,7 @@ int history_read(_info_pass_t *info_)
 	if (file_ == -1)
 	return (0);
 	if (!fstat(file_, &start))
-	f_size = start.st_size;
+	f_size = start.start_size;
 	if (f_size < 2)
 	return (0);
 	_buff = malloc(sizeof(char) * (f_size + 1));
@@ -94,7 +94,7 @@ int history_read(_info_pass_t *info_)
 	history_built_l(info_, _buff + var_0, count_line++);
 	free(_buff);
 	info_->count_history = count_line;
-	while (info_->count_history-- >= HIST_MAX)
+	while (info_->count_history-- >= MAX_HISTORY)
 	del_node_indx(&(info_->_history), 0);
 	history_recall(info_);
 	return (info_->count_history);

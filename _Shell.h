@@ -122,7 +122,7 @@ int _sh_loop(char **);
 /* function prototypes for _Errors.c */
 void puts_err(char *);
 int putchar_err(char);
-int put_def_f(char c, int def_f);
+int put_def_f(char c, char *def_f);
 int puts_def_f(char *ptr_string, int def_f);
 
 /* function prototypes for _String.c */
