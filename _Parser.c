@@ -1,14 +1,14 @@
 #include "_Shell.h"
 
 /**
- * is_exec - this determines if a file is an executable command
+ * curr_cmd - this determines if a file is an executable command
  *
  * @info: the info struct
  * @p: the path to the file
  *
  * Return: 1 if true, 0 if false
  */
-int is_exec(info_t *info, char *p)
+int curr_cmd(_info_pass_t *info, char *p)
 {
 	struct stat fs;
 
@@ -24,7 +24,7 @@ int is_exec(info_t *info, char *p)
 }
 
 /**
- * char_dup - duplicated chracters from a string within a range
+ * char_duplicate - duplicated chracters from a string within a range
  *
  * @path_str: the path string
  * @start_idx: starting index
@@ -32,7 +32,7 @@ int is_exec(info_t *info, char *p)
  *
  * Return: pointer to new buffer
  */
-char *char_dup(char *path_str, int start_idx, int stop_idx)
+char *char_duplicate(char *path_str, int start_idx, int stop_idx)
 {
 	static char buffer[1024];
 	int i, j = 0;
@@ -45,7 +45,7 @@ char *char_dup(char *path_str, int start_idx, int stop_idx)
 }
 
 /**
- * find_in_path - finds the specified command in the given path string
+ * _path_find - finds the specified command in the given path string
  *
  * @info: the info struct
  * @path_str: the path string
@@ -53,31 +53,31 @@ char *char_dup(char *path_str, int start_idx, int stop_idx)
  *
  * Return: full path of cmd if found, or NULL if not found
  */
-char *find_in_path(info_t *info, char *path_str, char *cmd)
+char *_path_find(_info_pass_t *info, char *path_str, char *cmd)
 {
 	int i = 0, current = 0;
 	char *p;
 
 	if (!path_str)
 		return (NULL);
-	if ((_strlen(cmd) > 2) && starts_with(cmd, "./"))
+	if ((str_len(cmd) > 2) && _start(cmd, "./"))
 	{
-		if (is_exec(info, cmd))
+		if (curr_cmd(info, cmd))
 			return (cmd);
 	}
 	while (1)
 	{
 		if (!path_str[i] || path_str[i] == ':')
 		{
-			p = char_dup(path_str, current, i);
+			p = char_duplicate(path_str, current, i);
 			if (!*p)
-				_strcat(p, cmd);
+				str_cat(p, cmd);
 			else
 			{
-				_strcat(p, "/");
-				_strcat(p, cmd);
+				str_cat(p, "/");
+				str_cat(p, cmd);
 			}
-			if (is_exec(info, p))
+			if (curr_cmd(info, p))
 				return (p);
 			if (!path_str[i])
 				break;
