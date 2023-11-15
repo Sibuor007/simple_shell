@@ -1,7 +1,7 @@
 #include "_Shell.h"
 
 /**
- * _strcpy - function that copies a string
+ * str_n_cpy - function that copies a string
  *
  * @dests: destination string
  * @src: string source
@@ -10,7 +10,7 @@
  * Return: the concatenated string
  */
 
-char _strcpy(char *dests, char *src, int x)
+char str_n_cpy(char *dests, char *src, int x)
 {
 	int i, j;
 	char *str = dests;
@@ -34,7 +34,7 @@ char _strcpy(char *dests, char *src, int x)
 }
 
 /**
- * _strcat - function that concatenates two strings
+ * str_n_cat - function that concatenates two strings
  *
  * @dests: first string input
  * @src: second string input
@@ -43,7 +43,7 @@ char _strcpy(char *dests, char *src, int x)
  * Return: the concatenated string
  */
 
-char _strcat(char *dests, char *src, int x)
+char str_n_cat(char *dests, char *src, int x)
 {
 	int i, j;
 	char *str = dests;
@@ -65,7 +65,7 @@ char _strcat(char *dests, char *src, int x)
 }
 
 /**
- * _strchr - function that locates a string character
+ * str_n_chr - function that locates a string character
  *
  * @str: string to parse
  * @c: character
@@ -73,7 +73,7 @@ char _strcat(char *dests, char *src, int x)
  * Return: a pointer to the memory area str
  */
 
-char _strchr(char *str, char c)
+char str_n_chr(char *str, char c)
 {
 	do {
 		if (*str == c)
