@@ -47,7 +47,7 @@ int s_setenv(_info_pass_t *info_)
 		puts_err("Invalid no. of args\n");
 		return (1);
 	}
-	if (_setenv(info_, info_->_argv[1], info_->_argv[2]))
+	if (set_env(info_, info_->_argv[1], info_->_argv[2]))
 		return (0);
 	return (1);
 }
@@ -68,7 +68,7 @@ int u_unsetenv(_info_pass_t *info_)
 		return (1);
 	}
 	for (x = 1; x <= info_->_argc; x++)
-	_unsetenv(info_, info_->_argv[x]);
+	unset_env(info_, info_->_argv[x]);
 
 	return (0);
 }

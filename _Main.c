@@ -3,12 +3,12 @@
 /**
  * main - entry point for the shell
  *
- * @argc: argument count
- * @argv: argument vector
+ * @_argc: argument count
+ * @_argv: argument vector
  *
  * Return: 0 on success, 1 on error
  */
-int main(int argc, char **argv)
+int main(int _argc, char **_argv)
 {
 	_info_pass_t info[] = { INIT_INFO };
 	int fd = 2;
@@ -18,18 +18,18 @@ int main(int argc, char **argv)
 			: "=r" (fd)
 			:  "r" (fd));
 
-	if (argc == 2)
+	if (_argc == 2)
 	{
-		fd = open(argv[1], O_RDONLY);
+		fd = open(_argv[1], O_RDONLY);
 		if (fd == -1)
 		{
 			if (errno == EACCES)
 				exit(126);
 			if (errno == ENOENT)
 			{
-				puts_(argv[0]);
+				puts_(_argv[0]);
 				puts_(": 0: Can't open ");
-				puts_(argv[1]);
+				puts_(_argv[1]);
 				putchar_('\n');
 				putchar_(FLUSH_BUFFER);
 				exit(127);

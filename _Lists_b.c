@@ -13,7 +13,7 @@ size_t len_list(const str_lists_t *h)
 
 	while (h)
 	{
-		h = h->next;
+		h = h->_next;
 		i++;
 	}
 	return (i);
@@ -38,7 +38,7 @@ char **str_list(str_lists_t *head)
 	str = malloc(sizeof(char *) * (i + 1));
 	if (!str)
 		return (NULL);
-	for (i = 0; node; node = node->next, i++)
+	for (i = 0; node; node = node->_next, i++)
 	{
 		s = malloc(str_len(node->s) + 1);
 		if (!s)
@@ -73,7 +73,7 @@ size_t p_list(const str_lists_t *h)
 		putchar_(' ');
 		puts_(h->str ? h->str : "(nil)");
 		puts_("\n");
-		h = h->next;
+		h = h->_next;
 		i++;
 	}
 	return (i);
@@ -118,7 +118,7 @@ size_t g_node_indx(str_lists_t *head, str_lists_t *n)
 	{
 		if (head == n)
 			return (i);
-		head = head->next;
+		head = head->_next;
 		i++;
 	}
 	return (-1);

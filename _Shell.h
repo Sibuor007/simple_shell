@@ -223,6 +223,9 @@ int _printalias(str_list_t *);
 ssize_t g_input(_info_pass_t *);
 int g_line(_info_pass_t *, char **, size_t *);
 void in_handler(int);
+ssize_t read_buf(_info_pass_t *, char *, size_t *);
+ssize_t buff_input (_info_pass_t *, char **, size_t *);
+
 
 /* function prototypes for _Getinfo.c */
 void info_clear(_info_pass_t *);

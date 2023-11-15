@@ -41,9 +41,9 @@ int history_write(_info_pass_t *info_)
 	free(f_name);
 	if (file_ == -1)
 	return (-1);
-	for (node_n = info_->_history; node_n; node_n = node_n->next)
+	for (node_n = info_->_history; node_n; node_n = node_n->_next)
 	{
-		put_def_f(node_n->str, file_);
+		put_def_f(node_n->ptr_string, file_);
 		puts_def_f('\n', file_);
 	}
 	puts_def_f(FLUSH_BUFFER, file_);
@@ -135,7 +135,7 @@ int history_recall(_info_pass_t *info_)
 	while (node_n)
 	{
 		node_n->_data = x++;
-		node_n = node_n->next;
+		node_n = node_n->_next;
 	}
 	return (info_->count_history = x);
 }
