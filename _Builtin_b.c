@@ -73,8 +73,8 @@ int _printalias(str_lists_t *node)
 
 	if (node)
 	{
-		s = str_chr(node->str, '=');
-		for (a = node->str; a <= s; a++)
+		s = str_chr(node->ptr_string, '=');
+		for (a = node->ptr_string; a <= s; a++)
 			putchar_('\'');
 		puts_(s + 1);
 		putchar_('\'');
@@ -103,11 +103,11 @@ int a_alias(_info_pass_t *info_)
 		while (node)
 		{
 			_printalias(node);
-			node = node->next;
+			node = node->_next;
 		}
 		return (0);
 	}
-	for (i = 1; info_->_argv[i], i++)
+	for (i = 1; info_->_argv[i]; i++)
 	{
 		s = str_chr(info_->_argv[i], '=');
 		if (s)
