@@ -1,7 +1,7 @@
 #include "_Shell.c"
 
 /**
- * my_memset - fills memory with a constant byte
+ * mem_set - fills memory with a constant byte
  *
  * @dest: pointer to the memory area
  * @byte: byte to fill *s with
@@ -9,7 +9,7 @@
  *
  * Return: a pointer to the the memory area s
  */
-char *my_memset(char *dest, char byte, unsigned int num)
+char *mem_set(char *dest, char byte, unsigned int num)
 {
 	unsigned int i;
 
@@ -19,11 +19,11 @@ char *my_memset(char *dest, char byte, unsigned int num)
 }
 
 /**
- * free_string_array - fress a string array
+ * _free - fress a string array
  *
  * @p: string array
  */
-void free_string_array(char *p)
+void _free(char *p)
 {
 	char **x = p;
 
@@ -36,7 +36,7 @@ void free_string_array(char *p)
 }
 
 /**
- * custom_realloc - reallocates a block of memory
+ * re_alloc - reallocates a block of memory
  *
  * @ptr: pointer to previous malloc'ated block
  * @prev_size: bytes size of previous block
@@ -44,7 +44,7 @@ void free_string_array(char *p)
  *
  * Return: pointer to the reallocated block
  */
-void *custom_realloc(void *ptr, unsigned int prev_size, unsigned int new_size)
+void *re_alloc(void *ptr, unsigned int prev_size, unsigned int new_size)
 {
 	char *x;
 
