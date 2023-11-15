@@ -40,7 +40,7 @@ int main(int _argc, char **_argv)
 	}
 	env_populate(info);
 	history_read(info);
-	_h_shell(info, argv);
+	_h_shell(info, _argv);
 
 	return (EXIT_SUCCESS);
 }

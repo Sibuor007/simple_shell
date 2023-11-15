@@ -67,7 +67,7 @@ int our_set_alias(_info_pass_t *info_, char *str)
  *
  * Return: 0 on success, 1 on error
  */
-int _printalias(str_list_t *node)
+int _printalias(str_lists_t *node)
 {
 	char *s = NULL, *a = NULL;
 
@@ -95,7 +95,7 @@ int a_alias(_info_pass_t *info_)
 {
 	int i = 0;
 	char *s = NULL;
-	str_list_t *node = NULL;
+	str_lists_t *node = NULL;
 
 	if (info_->_argc == 1)
 	{

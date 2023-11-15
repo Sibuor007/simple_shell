@@ -98,13 +98,11 @@ typedef struct _info_pass
 	int count_history;
 } _info_pass_t;
 
-#define INIT_INFO \
-{NULL, NULL, NULL, \
-	0, 0, 0, 0, \
-	NULL, NULL, NULL, NULL, NULL, \
-	0, 0, \
-	NULL, \
-	0, 0, 0}
+#define INIT_INFO
+{                                                                           \
+	NULL, NULL, NULL, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, 0, 0, NULL, \
+	0, 0, 0                                                             \
+}
 
 /**
  *struct built_in - structure that has the relevant
@@ -116,7 +114,7 @@ typedef struct built_in
 {
 	char *flag_type;
 	int (*def_f)(_info_pass_t *);
-} builtin_table;
+} built_in_table;
 
 /* function prototypes for _shLoop.c */
 int _sh_loop(char **);
@@ -207,7 +205,7 @@ char *convert_num(long int, int, int);
 void rm_comments(char *);
 
 /* function prototypes for _Builtin.c */
-int _exit(_info_pass_t *);
+int e_exit(_info_pass_t *);
 int _cd(_info_pass_t *);
 int _help(_info_pass_t *);
 
@@ -216,7 +214,7 @@ int h_history(_info_pass_t *);
 int a_alias(_info_pass_t *);
 int our_unset_alias(_info_pass_t *, char *);
 int our_set_alias(_info_pass_t *, char *);
-int _printalias(str_list_t *);
+int _printalias(str_lists_t *);
 
 
 /* function prototypes for _Getline.c */

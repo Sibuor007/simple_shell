@@ -52,8 +52,8 @@ int _h_shell(_info_pass_t *info_, char **arg_v)
 int builtin_find(_info_pass_t *info_)
 {
 		int x, blt_in_r = -1;
-		builtin_b builtin_bl[] = {
-		{"exit", _exit},
+		built_in_table builtin_bl[] = {
+		{"exit", e_exit},
 		{"env", e_env},
 		{"help", _help},
 		{"history", h_history},

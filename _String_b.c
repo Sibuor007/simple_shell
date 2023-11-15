@@ -14,12 +14,12 @@ char *str_cpy(char *dest, char *src)
 
 	if (dest == src || src == 0)
 		return (dest);
-	while (src[i])
+	while (src[x])
 	{
-		dest[i] = src[i];
+		dest[x] = src[x];
 		i++;
 	}
-	dest[i] = 0;
+	dest[x] = 0;
 	return (dest);
 }
 
@@ -63,7 +63,7 @@ void puts_(char *str)
 	while (str[x] != '\0')
 	{
 		putchar_(str[x]);
-		i++;
+		x++;
 	}
 }
 
@@ -78,11 +78,11 @@ void puts_(char *str)
 int putchar_(char c)
 {
 	static int i;
-	static char buffer[BUF_SIZE_WRITE];
+	static char buffer[BUFFER_SIZE_WRITE];
 
 	if (c == FLUSH_BUFFER || i >= BUFFER_SIZE_WRITE)
 	{
-		write(1, buf, i);
+		write(1, bufffer, i);
 		i = 0;
 	}
 	if (c != FLUSH_BUFFER)

@@ -1,12 +1,12 @@
 #include "_Shell.h"
 
 /**
- * _exit - a function that exits the simple shell
+ * e_exit - a function that exits the simple shell
  * @info_: a structure that contains arguments
  * Return: predetermined exit status
  */
 
-int _exit(_info_pass_t *info_)
+int e_exit(_info_pass_t *info_)
 {
 	int exit_check;
 
