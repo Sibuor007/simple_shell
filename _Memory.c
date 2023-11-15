@@ -1,13 +1,13 @@
 #include "_Shell.h"
 
 /**
- * free_n_nullify - frees a pointer and sets it to NULL
+ * free_f - frees a pointer and sets it to NULL
  *
  * @ptr: address of the pointer
  *
  * Return: 1 if freed, 0 if the pointer is already NULL
  */
-int free_n_nullify(void **ptr)
+int free_f(void **ptr)
 {
 	if (ptr && *ptr)
 	{
