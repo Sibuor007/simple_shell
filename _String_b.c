@@ -1,14 +1,14 @@
 #include "_Shell.h"
 
 /**
- * _strcpy - this copies a string
+ * str_cpy - this copies a string
  *
  * @dest: destination string
  * @src: the source string
  *
  * Return: pointer to destination
  */
-char *_strcpy(char *dest, char *src)
+char *str_cpy(char *dest, char *src)
 {
 	int x = 0;
 
@@ -24,13 +24,13 @@ char *_strcpy(char *dest, char *src)
 }
 
 /**
- * _strdup - duplicates a string
+ * str_up - duplicates a string
  *
  * @str: string to duplicate
  *
  * Return: pointer to the duplicated string
  */
-char *_strdup(const char *str)
+char *str_up(const char *str)
 {
 	int len = 0;
 	char *s;
@@ -48,13 +48,13 @@ char *_strdup(const char *str)
 }
 
 /**
- * _puts - prints an input string
+ * puts_ - prints an input string
  *
  * @str: string to print
  *
  * Return: nothing
  */
-void _puts(char *str)
+void puts_(char *str)
 {
 	int x = 0;
 
@@ -62,30 +62,30 @@ void _puts(char *str)
 		return;
 	while (str[x] != '\0')
 	{
-		_putchar(str[x]);
+		putchar_(str[x]);
 		i++;
 	}
 }
 
 /**
- * _putchar - writes the character c to strout
+ * putchar_ - writes the character c to strout
  *
  * @c: character to print
  *
  * Return: on success 1
  * on error, -1 is returned, and errno is set appropriately
  */
-int _putchar(char c)
+int putchar_(char c)
 {
 	static int i;
-	static char buffer[WRITE_BUF_SIZE];
+	static char buffer[BUF_SIZE_WRITE];
 
-	if (c == BUF_FLUSH || i >= WRUTE_BUF_SIZE)
+	if (c == FLUSH_BUFFER || i >= BUFFER_SIZE_WRITE)
 	{
 		write(1, buf, i);
 		i = 0;
 	}
-	if (c != BUF_FLUSH)
+	if (c != FLUSH_BUFFER)
 		buffer[i++] = c;
 	return (1);
 }
