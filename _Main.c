@@ -10,7 +10,7 @@
  */
 int main(int argc, char **argv)
 {
-	info_t info[] = { INFO_INIT };
+	_info_pass_t info[] = { INIT_INFO };
 	int fd = 2;
 
 	asm ("mov %1, %0\n\t"
@@ -27,20 +27,20 @@ int main(int argc, char **argv)
 				exit(126);
 			if (errno == ENOENT)
 			{
-				_eputs(argv[0]);
-				_eputs(": 0: Can't open ");
-				_eputs(argv[1]);
-				_eputchar('\n');
-				_eputchar(BUF_FLUSH);
+				puts_(argv[0]);
+				puts_(": 0: Can't open ");
+				puts_(argv[1]);
+				putchar_('\n');
+				putchar_(FLUSH_BUFFER);
 				exit(127);
 			}
 			return (EXIT_FAILURE);
 		}
-		info->readfd = fd;
+		info->_input_read = fd;
 	}
-	populate_env_list(info);
-	read_history(info);
-	hsh(info, argv);
+	env_populate(info);
+	history_read(info);
+	_h_shell(info, argv);
 
 	return (EXIT_SUCCESS);
 }
