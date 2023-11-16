@@ -3,7 +3,7 @@
 /**
  * e_env - function that prints the environment
  * @info_: a potential structure with arguments
- * Return: 0
+ * Return: 0 always
  */
 
 int e_env(_info_pass_t *info_)
@@ -13,7 +13,7 @@ int e_env(_info_pass_t *info_)
 }
 
 /**
- * get_env - used to get the value of variable
+ * get_env - used to get the value of an enviroment variable
  * @info_: a structure that contains arguments
  * @var_: name for the enviornment variable
  * Return: the value
