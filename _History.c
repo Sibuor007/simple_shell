@@ -44,7 +44,7 @@ int history_write(_info_pass_t *info_)
 	for (node_n = info_->_history; node_n; node_n = node_n->_next)
 	{
 		puts_def_f(node_n->ptr_string, file_);
-		put_def_f("\n", file_);
+		put_def_f('\n', file_);
 	}
 	put_def_f(FLUSH_BUFFER, file_);
 	close(file_);
