@@ -149,7 +149,7 @@ char *_path_find(_info_pass_t *, char *, char *);
 /* function prototypes for _Exits.c */
 char* str_n_cpy(char *, char *, int);
 char* str_n_cat(char *, char *, int);
-char* str_n_chr(char *, char);
+char* str_chr(char *, char);
 
 /* function prototypes for _Tokenizer.c */
 char **_str_tow(char *, char *);

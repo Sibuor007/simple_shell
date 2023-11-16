@@ -65,7 +65,7 @@ char* str_n_cat(char *dests, char *src, int x)
 }
 
 /**
- * str_n_chr - function that locates a string character
+ * str_chr - function that locates a string character
  *
  * @str: string to parse
  * @c: character
@@ -73,7 +73,7 @@ char* str_n_cat(char *dests, char *src, int x)
  * Return: a pointer to the memory area str
  */
 
-char* str_n_chr(char *str, char c)
+char* str_chr(char *str, char c)
 {
 	do {
 		if (*str == c)
