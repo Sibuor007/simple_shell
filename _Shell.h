@@ -13,9 +13,9 @@
 #include <sys/wait.h>
 
 /* these are MACROS to read and or write buffer */
-#define BUFFER_SIZE_READ 	1024
-#define BUFFER_SIZE_WRITE 	1024
-#define FLUSH_BUFFER 		-1
+#define BUFFER_SIZE_READ	1024
+#define BUFFER_SIZE_WRITE	1024
+#define FLUSH_BUFFER	-1
 
 /* these are MACROS used in command chaining */
 #define NORMAL_COMMAND	0
@@ -29,7 +29,7 @@
 
 /* for string tokenizer and getline()*/
 #define GETLINE_USAGE	0
-#define STRTOK_USAGE 	0
+#define STRTOK_USAGE	0
 
 #define FILE_HISTORY	"SIMPLE SHELL CMD HISTORY"
 #define MAX_HISTORY	4096
@@ -76,7 +76,6 @@ typedef struct str_lists
 
 typedef struct _info_pass
 {
-	
 	str_lists_t *_env_copy;
 	str_lists_t *_history;
 	str_lists_t *_alias;
@@ -147,9 +146,9 @@ char *char_duplicate(char *, int, int);
 char *_path_find(_info_pass_t *, char *, char *);
 
 /* function prototypes for _Exits.c */
-char* str_n_cpy(char *, char *, int);
-char* str_n_cat(char *, char *, int);
-char* str_chr(char *, char);
+char *str_n_cpy(char *, char *, int);
+char *str_n_cat(char *, char *, int);
+char *str_chr(char *, char);
 
 /* function prototypes for _Tokenizer.c */
 char **_str_tow(char *, char *);
@@ -220,7 +219,7 @@ ssize_t g_input(_info_pass_t *);
 int g_line(_info_pass_t *, char **, size_t *);
 void in_handler(int);
 ssize_t read_buf(_info_pass_t *, char *, size_t *);
-ssize_t buff_input (_info_pass_t *, char **, size_t *);
+ssize_t buff_input(_info_pass_t *, char **, size_t *);
 
 
 /* function prototypes for _Getinfo.c */
