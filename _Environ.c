@@ -83,6 +83,7 @@ int env_populate(_info_pass_t *info_)
 {
 	str_lists_t *n_node = NULL;
 	size_t x;
+	char **_env_rn;
 
 	for (x = 0; _env_rn[x]; x++)
 	node_add_end(&n_node, _env_rn[x], 0);
