@@ -19,11 +19,11 @@ char *mem_set(char *dest, char byte, unsigned int num)
 }
 
 /**
- * _free - fress a string array
+ * _myfree - fress a string array
  *
  * @p: string array
  */
-void _free(char *p)
+void _myfree(char **p)
 {
 	char **x = p;
 
@@ -61,7 +61,7 @@ void *re_alloc(void *ptr, unsigned int prev_size, unsigned int new_size)
 
 	prev_size = prev_size < new_size ? prev_size : new_size;
 	while (prev_size--)
-		x[prev_size] = ((char *)ptr)[old_size];
+		x[prev_size] = ((char *)ptr)[prev_size];
 	free(ptr);
 	return (x);
 }
