@@ -4,7 +4,7 @@
  * g_history_f - function that fetches file _history
  * @info_: item in the structure
  * Return: string that has the file _history
- */  
+ */
 
 char *g_history_f(_info_pass_t *info_)
 {
@@ -43,10 +43,10 @@ int history_write(_info_pass_t *info_)
 	return (-1);
 	for (node_n = info_->_history; node_n; node_n = node_n->_next)
 	{
-		put_def_f(node_n->ptr_string, file_);
-		puts_def_f("\n", file_);
+		puts_def_f(node_n->ptr_string, file_);
+		put_def_f("\n", file_);
 	}
-	puts_def_f(FLUSH_BUFFER, file_);
+	put_def_f(FLUSH_BUFFER, file_);
 	close(file_);
 	return (1);
 }
