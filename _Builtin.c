@@ -41,9 +41,10 @@ int _cd(_info_pass_t *info_)
 
 	str = getcwd(buff_, 1024);
 	if (!str)
+	{
 		puts_("Error: can't retrieve dir\n");
-	return (-1);
-
+		return (-1);
+	}
 	if (!info_->_argv[1])
 	{
 		d_var = get_env(info_, "HOME: ");
@@ -66,6 +67,7 @@ int _cd(_info_pass_t *info_)
 		chdir((d_var = get_env(info_, "OLD_PWD: ")) ? d_var : "/");
 	}
 	else
+	{
 		_chdir = chdir(info_->_argv[1]);
 		if (_chdir == -1)
 		{
@@ -77,6 +79,7 @@ int _cd(_info_pass_t *info_)
 			set_env(info_, "OLD_PWD: ", get_env(info_, "PWD="));
 			set_env(info_, "PWD", getcwd(buff_, 1024));
 		}
+	}
 	return (0);
 }
 
