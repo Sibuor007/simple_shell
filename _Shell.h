@@ -136,7 +136,7 @@ void puts_(char *);
 int putchar_(char);
 
 /* function prototypes for _shellLoop.c */
-int _h_shell(_info_pass_t *, char **);
+int hsh(_info_pass_t *, char **);
 int builtin_find(_info_pass_t *);
 void command_find(_info_pass_t *);
 void command_fork(_info_pass_t *);
