@@ -85,7 +85,7 @@ int set_env(_info_pass_t *info_, char *var_, char *value_)
 		}
 		_node = _node->_next;
 	}
-	add_node_end(&(info_->_env_copy), buff_, 0);
+	node_add_end(&(info_->_env_copy), buff_, 0);
 	free(buff_);
 	info_->change_env_rn = 1;
 	return (0);
