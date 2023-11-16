@@ -120,7 +120,7 @@ int _sh_loop(char **);
 /* function prototypes for _Errors.c */
 void puts_err(char *);
 int putchar_err(char);
-int put_def_f(char* c, int def_f);
+int put_def_f(char c, int def_f);
 int puts_def_f(char *ptr_string, int def_f);
 
 /* function prototypes for _String.c */
@@ -157,7 +157,7 @@ char **_str_tow_b(char *, char);
 
 /* function prototypes for _Realloc.c */
 char *mem_set(char *, char, unsigned int);
-void _free(char **);
+void _myfree(char **);
 void *re_alloc(void *, unsigned int, unsigned int);
 
 /* function prototypes for _Environ.c */
