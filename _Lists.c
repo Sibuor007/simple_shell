@@ -35,13 +35,13 @@ str_lists_t *node_add(str_lists_t **_head, const char *ptr_string, int _data)
 
 /**
  * node_add_end - adds node at end of a linked list
- * @_head: pointer to the list
+ * @head: pointer to the list
  * @ptr_string: field for string
- * @_data: node index used
+ * @data: node index used
  * Return: final list
  */
 
-str_lists_t *node_add_end(str_lists_t **_head, const char *ptr_string, int _data)
+str_lists_t *node_add_end(str_lists_t **head, const char *ptr_string, int data)
 {
 	str_lists_t *new_node, *node_0;
 

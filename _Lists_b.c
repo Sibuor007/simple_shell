@@ -26,14 +26,14 @@ size_t len_list(const str_lists_t *h_d)
  *
  * Return: array of strings
  */
-char **str_list(str_lists_t *h_d)
+char **str_list(str_lists_t *head)
 {
-	str_lists_t *node_ = h_d;
-	size_t i = len_list(h_d), j;
+	str_lists_t *node_ = head;
+	size_t i = len_list(head), j;
 	char **str;
 	char *s;
 
-	if (!h_d || !i)
+	if (!head || !i)
 		return (NULL);
 	str = malloc(sizeof(char *) * (i + 1));
 	if (!str)

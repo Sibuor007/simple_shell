@@ -10,9 +10,7 @@
  */
 int main(int _argc, char **_argv)
 {
-	_info_pass_t info[] = {
-		{NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, 0, 0, NULL, NULL, 0, 0, NULL, 0, 0, 0}
-	};
+	_info_pass_t info[] = { INIT_INFO };
 	int fd = 2;
 
 	asm ("mov %1, %0\n\t"

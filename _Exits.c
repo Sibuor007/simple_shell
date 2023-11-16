@@ -10,7 +10,7 @@
  * Return: the concatenated string
  */
 
-char* str_n_cpy(char *dests, char *src, int x)
+char *str_n_cpy(char *dests, char *src, int x)
 {
 	int i, j;
 	char *str = dests;
@@ -43,7 +43,7 @@ char* str_n_cpy(char *dests, char *src, int x)
  * Return: the concatenated string
  */
 
-char* str_n_cat(char *dests, char *src, int x)
+char *str_n_cat(char *dests, char *src, int x)
 {
 	int i, j;
 	char *str = dests;
@@ -73,7 +73,7 @@ char* str_n_cat(char *dests, char *src, int x)
  * Return: a pointer to the memory area str
  */
 
-char* str_chr(char *str, char c)
+char *str_chr(char *str, char c)
 {
 	do {
 		if (*str == c)

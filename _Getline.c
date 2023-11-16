@@ -8,7 +8,7 @@
  * Return: bytes read
  */
 
-ssize_t buff_input (_info_pass_t *info_, char **buff_, size_t *len_h)
+ssize_t buff_input(_info_pass_t *info_, char **buff_, size_t *len_h)
 {
 	ssize_t n = 0;
 	size_t len_p = 0;
@@ -43,7 +43,7 @@ ssize_t buff_input (_info_pass_t *info_, char **buff_, size_t *len_h)
 }
 
 /**
- * get_input - function that gets line
+ * g_input - function that gets line
  * @info_: element of structure
  * Return: bytes read
  */
@@ -109,7 +109,7 @@ ssize_t read_buf(_info_pass_t *info_, char *buff_, size_t *i)
 }
 
 /**
- * _getline - function to get line from standard input
+ * g_line - function to get line from standard input
  * @info_: item in the structure
  * @ptr_: pointer to the buffer
  * @length: size of buffer, if not null

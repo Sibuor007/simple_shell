@@ -45,7 +45,8 @@ int _chain(_info_pass_t *info_, char *buff_, size_t *ptr)
  * Return: no return value
  */
 
-void _chain_check(_info_pass_t *info_, char *buff_, size_t *ptr, size_t x, size_t length)
+void _chain_check(_info_pass_t *info_, char *buff_,
+		size_t *ptr, size_t x, size_t length)
 {
 	size_t y = *ptr;
 

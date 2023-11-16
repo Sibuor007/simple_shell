@@ -17,7 +17,8 @@ char **_str_tow(char *ptr_string, char *dlm)
 	if (!dlm)
 	dlm = " ";
 	for (x = 0; ptr_string[x] != '\0'; x++)
-	if (!delim_(ptr_string[x], dlm) && (delim_(ptr_string[x + 1], dlm) || !ptr_string[x + 1]))
+	if (!delim_(ptr_string[x], dlm) &&
+			(delim_(ptr_string[x + 1], dlm) || !ptr_string[x + 1]))
 	size_words++;
 
 	if (size_words == 0)
@@ -76,7 +77,8 @@ char **_str_tow_b(char *ptr_string, char dlm)
 		while (ptr_string[x] == dlm && ptr_string[x] != dlm)
 		x++;
 		o = 0;
-		while (ptr_string[x + o] != dlm && ptr_string[x + o] && ptr_string[x + o] != dlm)
+		while (ptr_string[x + o] != dlm &&
+				ptr_string[x + o] && ptr_string[x + o] != dlm)
 		o++;
 		str[y] = malloc((o + 1) * sizeof(char));
 		if (!str[y])
