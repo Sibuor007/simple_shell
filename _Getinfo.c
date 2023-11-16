@@ -67,8 +67,8 @@ void info_free(_info_pass_t *info_, int field_)
 		_free_l(&(info_->_history));
 		if (info_->_alias)
 		_free_l(&(info_->_alias));
-		_myfree(info_->dl_env_rn);
-		info_->dl_env_rn = NULL;
+		_myfree(info_->_env_rn);
+		info_->_env_rn = NULL;
 		free_f((void **)info_->buffer_cmd);
 		if (info_->_input_read > 2)
 		close(info_->_input_read);
