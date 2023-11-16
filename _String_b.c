@@ -17,7 +17,7 @@ char *str_cpy(char *dest, char *src)
 	while (src[x])
 	{
 		dest[x] = src[x];
-		i++;
+		x++;
 	}
 	dest[x] = 0;
 	return (dest);
@@ -82,7 +82,7 @@ int putchar_(char c)
 
 	if (c == FLUSH_BUFFER || i >= BUFFER_SIZE_WRITE)
 	{
-		write(1, bufffer, i);
+		write(1, buffer, i);
 		i = 0;
 	}
 	if (c != FLUSH_BUFFER)
