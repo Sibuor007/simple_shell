@@ -102,10 +102,10 @@ int p_delim(int indus, int fd)
  */
 char *convert_num(long int digit, int b, int flags)
 {
-	static char *array;
-	static char buffer[50];
+	static char *_array;
+	static char buffer_[50];
 	char u = 0;
-	char *ptr;
+	char *ptr_;
 	unsigned long x = digit;
 
 	if (!(flags & UNSIGNED_CONVERSION) && digit < 0)
@@ -114,18 +114,24 @@ char *convert_num(long int digit, int b, int flags)
 		u = '-';
 	}
 
+<<<<<<< HEAD
+	_array = flags & _TO_LOWERCASE ? "0123456789abcdef" : "0123456789ABCDEF";
+	ptr_ = &buffer_[49];
+	ptr_ = '\0';
+=======
 	array = flags & _TO_LOWERCASE ? "0123456789abcdef" : "0123456789ABCDEF";
 	ptr = &buffer[49];
 	*ptr = '\0';
+>>>>>>> origin/master
 
 	do {
-		*--ptr = array[x % b];
+		*--ptr_ = _array[x % b];
 		x /= b;
 	} while (x != 0);
 
 	if (u)
-		*--ptr = u;
-	return (ptr);
+		*--ptr_ = u;
+	return (ptr_);
 }
 
 /**

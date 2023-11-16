@@ -30,11 +30,11 @@ void puts_err(char *str)
 int putchar_err(char x)
 {
 	static int u;
-	static char buf[BUFFER_SIZE_WRITE];
+	static char buff_[BUFFER_SIZE_WRITE];
 
 	if (x == FLUSH_BUFFER || u >= BUFFER_SIZE_WRITE)
 	{
-		write(2, buf, u);
+		write(2, buff_, u);
 		u = 0;
 	}
 	if (x != FLUSH_BUFFER)
@@ -54,15 +54,15 @@ int putchar_err(char x)
 int put_def_f(char c, int def_f)
 {
 	static int u;
-	static char buf[BUFFER_SIZE_WRITE];
+	static char buff_[BUFFER_SIZE_WRITE];
 
 	if (c == FLUSH_BUFFER || u >= BUFFER_SIZE_WRITE)
 	{
-		write(def_f, buf, u);
+		write(def_f, buff_, u);
 		u = 0;
 	}
 	if (c != FLUSH_BUFFER)
-		buf[u++] = x;
+		buf[u++] = c;
 	return (1);
 }
 

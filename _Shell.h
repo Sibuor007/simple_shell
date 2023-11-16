@@ -147,9 +147,9 @@ char *char_duplicate(char *, int, int);
 char *_path_find(_info_pass_t *, char *, char *);
 
 /* function prototypes for _Exits.c */
-char *str_n_cpy(char *, char *, int);
-char *str_n_cat(char *, char *, int);
-char *str_chr(char *, char);
+char* str_n_cpy(char *, char *, int);
+char* str_n_cat(char *, char *, int);
+void *str_chr(char *, char);
 
 /* function prototypes for _Tokenizer.c */
 char **_str_tow(char *, char *);
@@ -197,7 +197,7 @@ int a_toi(char *);
 
 /* function prototypes for _Errors_b.c */
 int err_atoi(char *);
-void p_error(_info_pass_t *, char *);
+void p_error(_info_pass_t *, char *, char *);
 int p_delim(int, int);
 char *convert_num(long int, int, int);
 void rm_comments(char *);

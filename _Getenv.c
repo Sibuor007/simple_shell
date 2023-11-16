@@ -24,7 +24,7 @@ char **g_environ(_info_pass_t *info_)
  * @var_: the string in question
  */
 
-int unset_env(info_t *info_, char *var_)
+int unset_env(_info_pass_t *info_, char *var_)
 {
 	str_lists_t *_node = info_->_env_copy;
 	size_t x = 0;
@@ -57,7 +57,7 @@ int unset_env(info_t *info_, char *var_)
  * return: 0
  */
 
-int set_env(info_t *info_, char *var_, char *value_)
+int set_env(_info_pass_t *info_, char *var_, char *value_)
 {
 	char *buff_ = NULL;
 	str_lists_t *_node;

@@ -67,6 +67,18 @@ int _cd(_info_pass_t *info_)
 		chdir((d_var = get_env(info_, "OLD_PWD: ")) ? d_var : "/");
 	}
 	else
+<<<<<<< HEAD
+	_chdir = chdir(info_->_argv[1]);
+	if (_chdir == -1)
+	{
+		p_error(info_, "can't cd to ");
+		puts_err(info_->_argv[1]), putchar_err('\n');
+	}
+	else
+	{
+		set_env(info_, "OLD_PWD: ", get_env(info_, "PWD="));
+		set_env(info_, "PWD", getcwd(buff_, 1024));
+=======
 	{
 		_chdir = chdir(info_->_argv[1]);
 		if (_chdir == -1)
@@ -79,6 +91,7 @@ int _cd(_info_pass_t *info_)
 			set_env(info_, "OLD_PWD: ", get_env(info_, "PWD="));
 			set_env(info_, "PWD", getcwd(buff_, 1024));
 		}
+>>>>>>> origin/master
 	}
 	return (0);
 }
