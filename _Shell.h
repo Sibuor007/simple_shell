@@ -98,11 +98,9 @@ typedef struct _info_pass
 	int count_history;
 } _info_pass_t;
 
-#define INIT_INFO
-{                                                                           \
-	NULL, NULL, NULL, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, 0, 0, NULL, \
-	0, 0, 0                                                             \
-}
+#define INIT_INFO \
+{NULL, NULL, NULL, 0, 0, 0, 0, NULL, NULL, NULL, NULL, NULL, 0, 0, NULL, \
+	0, 0, 0}
 
 /**
  *struct built_in - structure that has the relevant

@@ -34,19 +34,16 @@ int err_atoi(char *e)
  *
  * @info_: the parameter & return info struct
  * @s: string containing specified error type
- * @error_type: type of error
  *
  * Return: 0 if no numbers in string, -1 if on error
  */
-void p_error(_info_pass_t *info_, char *error_type, char *s)
+void p_error(_info_pass_t *info_, char *s)
 {
 	puts_err(info_->_filename);
 	puts_err(": ");
 	p_delim(info_->_counts_line, STDERR_FILENO);
 	puts_err(": ");
 	puts_err(info_->_argv[0]);
-	puts_err(": ");
-	puts_err(error_type);
 	puts_err(": ");
 	puts_err(s);
 }
@@ -117,9 +114,15 @@ char *convert_num(long int digit, int b, int flags)
 		u = '-';
 	}
 
+<<<<<<< HEAD
 	_array = flags & _TO_LOWERCASE ? "0123456789abcdef" : "0123456789ABCDEF";
 	ptr_ = &buffer_[49];
 	ptr_ = '\0';
+=======
+	array = flags & _TO_LOWERCASE ? "0123456789abcdef" : "0123456789ABCDEF";
+	ptr = &buffer[49];
+	*ptr = '\0';
+>>>>>>> origin/master
 
 	do {
 		*--ptr_ = _array[x % b];
