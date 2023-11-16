@@ -53,7 +53,7 @@ str_lists_t *node_add_end(str_lists_t **head, const char *ptr_string, int data)
 	if (!new_node)
 	return (NULL);
 	mem_set((void *)new_node, 0, sizeof(str_lists_t));
-	new_node->data = data;
+	new_node->_data = data;
 	if (ptr_string)
 	{
 		new_node->ptr_string = str_up(ptr_string);

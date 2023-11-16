@@ -11,8 +11,10 @@
 int main(int _argc, char **_argv)
 {
 	_info_pass_t info[] = {
-		NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, 0, 0,
-		NULL, NULL, 0, 0, NULL, 0, 0, 0
+		{
+			NULL, NULL, NULL, NULL, NULL, NULL, 0, 0, 0, 0,
+			NULL, NULL, 0, 0, NULL, 0, 0, 0
+		}
 	};
 	int fd = 2;
 
