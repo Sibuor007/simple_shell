@@ -1,20 +1,20 @@
 #include "_Shell.h"
 
 /**
- * g_environ - for the copy of environment for string array
+ * g_environ - this will return the string array copy of environment
  * @info_: a structure that has arguments
- * Return: 0
+ * Return: 0 always
  */
 
 char **g_environ(_info_pass_t *info_)
 {
-	if (!info_->dl_env_rn || info_->change_env_rn)
+	if (!info_->_env_rn || info_->change_env_rn)
 	{
-		info_->dl_env_rn =  str_list(info_->_env_copy);
+		info_->_env_rn =  str_list(info_->_env_copy);
 		info_->change_env_rn = 0;
 	}
 
-	return (info_->dl_env_rn);
+	return (info_->_env_rn);
 }
 
 /**
@@ -54,7 +54,7 @@ int unset_env(_info_pass_t *info_, char *var_)
  * @info_: a structure with arguments
  * @var_: string property
  * @value_: the string _env_copy var_ value_
- * return: 0
+ * Return: 0
  */
 
 int set_env(_info_pass_t *info_, char *var_, char *value_)
@@ -64,11 +64,11 @@ int set_env(_info_pass_t *info_, char *var_, char *value_)
 	char *ptr;
 
 	if (!var_ || !value_)
-	return (0);
+		return (0);
 
 	buff_ = malloc(str_len(var_) + str_len(value_) + 2);
 	if (!buff_)
-	return (1);
+		return (1);
 	str_cpy(buff_, var_);
 	str_cat(buff_, "=");
 	str_cat(buff_, value_);

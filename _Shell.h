@@ -63,7 +63,7 @@ typedef struct str_lists
  *@flag_count: counter for flags encountered
  *@_filename: name of the program file
  *@_env_copy: the local copy of the linked list environment
- *@dl_env_rn: a modified copy of the linked list environment
+ *@_env_rn: a modified copy of the linked list environment
  *@_history: the node that invokes relevant history
  *@_alias: node that invokes alias
  *@change_env_rn: activates when environment changes
@@ -88,7 +88,7 @@ typedef struct _info_pass
 	int _errno;
 	int flag_count;
 	char *_filename;
-	char **dl_env_rn;
+	char **_env_rn;
 	int change_env_rn;
 	int _status;
 
