@@ -44,7 +44,7 @@ int history_write(_info_pass_t *info_)
 	for (node_n = info_->_history; node_n; node_n = node_n->_next)
 	{
 		put_def_f(node_n->ptr_string, file_);
-		puts_def_f('\n', file_);
+		puts_def_f("\n", file_);
 	}
 	puts_def_f(FLUSH_BUFFER, file_);
 	close(file_);
@@ -72,7 +72,7 @@ int history_read(_info_pass_t *info_)
 	if (file_ == -1)
 	return (0);
 	if (!fstat(file_, &start))
-	f_size = start.start_size;
+	f_size = start.st_size;
 	if (f_size < 2)
 	return (0);
 	_buff = malloc(sizeof(char) * (f_size + 1));
@@ -114,7 +114,7 @@ int history_built_l(_info_pass_t *info_, char *_buff, int count_line)
 
 	if (info_->_history)
 	node_n = info_->_history;
-	add_node_end(&node_n, _buff, count_line);
+	node_add_end(&node_n, _buff, count_line);
 
 	if (!info_->_history)
 	info_->_history = node_n;

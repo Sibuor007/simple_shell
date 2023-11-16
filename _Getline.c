@@ -53,7 +53,7 @@ ssize_t g_input(_info_pass_t *info_)
 	static char *buff_;
 	static size_t i, j, len_h;
 	ssize_t n = 0;
-	char **buf_p = &(info_->_arg), *p_tr;
+	char **buf_p = &(info_->_args), *p_tr;
 
 	putchar_(FLUSH_BUFFER);
 	n = buff_input(info_, &buff_, &len_h);
@@ -122,10 +122,10 @@ int g_line(_info_pass_t *info_, char **ptr_, size_t *length)
 	static size_t i, len_h;
 	size_t m;
 	ssize_t n = 0, p_tr = 0;
-	char *p_tr = NULL, *new_ptr = NULL, *ch;
+	char *p_ = NULL, *new_ptr = NULL, *ch;
 
-	p_tr = *ptr_;
-	if (p_tr && length)
+	p_ = *ptr_;
+	if (p_ && length)
 	p_tr = *length;
 	if (i == len_h)
 	i = len_h = 0;
@@ -136,9 +136,9 @@ int g_line(_info_pass_t *info_, char **ptr_, size_t *length)
 
 	ch = str_chr(buff_ + i, '\n');
 	m = ch ? 1 + (unsigned int)(ch - buff_) : len_h;
-	new_ptr = re_alloc(p_tr, p_tr, p_tr ? p_tr + m : m + 1);
+	new_ptr = re_alloc(p_, p_tr, p_tr ? p_tr + m : m + 1);
 	if (!new_ptr)
-	return (p_tr ? free(p_tr), -1 : -1);
+	return (p_ ? free(p_), -1 : -1);
 
 	if (p_tr)
 	str_n_cat(new_ptr, buff_ + i, m - i);
@@ -147,11 +147,11 @@ int g_line(_info_pass_t *info_, char **ptr_, size_t *length)
 
 	p_tr += m - i;
 	i = m;
-	p_tr = new_ptr;
+	p_ = new_ptr;
 
 	if (length)
 	*length = p_tr;
-	*ptr_ = p_tr;
+	*ptr_ = p_;
 	return (p_tr);
 }
 

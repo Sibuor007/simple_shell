@@ -120,7 +120,7 @@ int _sh_loop(char **);
 /* function prototypes for _Errors.c */
 void puts_err(char *);
 int putchar_err(char);
-int put_def_f(char c, int def_f);
+int put_def_f(char* c, int def_f);
 int puts_def_f(char *ptr_string, int def_f);
 
 /* function prototypes for _String.c */
@@ -149,7 +149,7 @@ char *_path_find(_info_pass_t *, char *, char *);
 /* function prototypes for _Exits.c */
 char* str_n_cpy(char *, char *, int);
 char* str_n_cat(char *, char *, int);
-void *str_chr(char *, char);
+char* str_n_chr(char *, char);
 
 /* function prototypes for _Tokenizer.c */
 char **_str_tow(char *, char *);
@@ -233,7 +233,7 @@ size_t len_list(const str_lists_t *);
 char **str_list(str_lists_t *);
 size_t p_list(const str_lists_t *);
 str_lists_t *node_beg(str_lists_t *, char *, char);
-ssize_t g_node_indx(str_lists_t *, str_lists_t *);
+size_t g_node_indx(str_lists_t *, str_lists_t *);
 
 /* function prototypes for _Vars.c*/
 int _chain(_info_pass_t *, char *, size_t *);
