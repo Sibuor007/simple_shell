@@ -54,7 +54,7 @@ void info_set(_info_pass_t *info_, char **a_v)
 
 void info_free(_info_pass_t *info_, int field_)
 {
-	_free(info_->_argv);
+	_myfree(info_->_argv);
 	info_->_argv = NULL;
 	info_->_str_path = NULL;
 	if (field_)
