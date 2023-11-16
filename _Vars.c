@@ -131,7 +131,7 @@ int _vars_replace(_info_pass_t *info_)
 		if (node_)
 		{
 			_str_replace(&(info_->_argv[x]),
-			str_up((str_chr(node_->ptr_string, '=') + 1));
+			str_up(str_chr(node_->ptr_string, '=') + 1);
 			continue;
 		}
 			_str_replace(&info_->_argv[x], str_up(""));
