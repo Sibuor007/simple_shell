@@ -45,15 +45,15 @@ str_lists_t *node_add_end(str_lists_t **head, const char *ptr_string, int data)
 {
 	str_lists_t *new_node, *node_0;
 
-	if (!_head)
+	if (!head)
 	return (NULL);
 
-	node_0 = *_head;
+	node_0 = *head;
 	new_node = malloc(sizeof(str_lists_t));
 	if (!new_node)
 	return (NULL);
 	mem_set((void *)new_node, 0, sizeof(str_lists_t));
-	new_node->_data = _data;
+	new_node->data = data;
 	if (ptr_string)
 	{
 		new_node->ptr_string = str_up(ptr_string);
@@ -70,7 +70,7 @@ str_lists_t *node_add_end(str_lists_t **head, const char *ptr_string, int data)
 		node_0->_next = new_node;
 	}
 	else
-	*_head = new_node;
+	*head = new_node;
 	return (new_node);
 }
 

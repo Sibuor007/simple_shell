@@ -42,7 +42,7 @@ int str_cmp(char *s1, char *s2)
 }
 
 /**
- * _start - checks if a string starts with a specified prefix
+ * starts_with - checks if a string starts with a specified prefix
  *
  * @str: string to search
  * @prefix: prefix to find
