@@ -38,7 +38,7 @@ int putchar_err(char x)
 		u = 0;
 	}
 	if (x != FLUSH_BUFFER)
-		buf[u++] = x;
+		buff_[u++] = x;
 	return (1);
 }
 
@@ -62,7 +62,7 @@ int put_def_f(char c, int def_f)
 		u = 0;
 	}
 	if (c != FLUSH_BUFFER)
-		buf[u++] = c;
+		buff_[u++] = c;
 	return (1);
 }
 
