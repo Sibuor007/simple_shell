@@ -77,7 +77,7 @@ char str_n_chr(char *str, char c)
 {
 	do {
 		if (*str == c)
-			return (s);
+			return (str);
 	} while (*str++ != '\0');
 
 	return (NULL);

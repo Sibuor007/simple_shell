@@ -50,7 +50,6 @@ int a_toi(char *str)
 {
 	int j, mark = 1, _flag = 0, result;
 	unsigned int count = 0;
-	bool is_digit = false;
 
 	for (j = 0;  str[j] != '\0' && _flag != 2; j++)
 	{
@@ -62,16 +61,9 @@ int a_toi(char *str)
 			_flag = 1;
 			count *= 10;
 			count += (str[j] - '0');
-			is_digit = true;
 		}
 		else if (_flag == 1)
 			_flag = 2;
-	}
-
-	if (!is_digit)
-	{
-		fprintf(stderr, "Error: non-digit characters found\n");
-		return 0;
 	}
 
 	if (mark == -1)

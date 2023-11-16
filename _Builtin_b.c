@@ -107,7 +107,7 @@ int a_alias(_info_pass_t *info_)
 		}
 		return (0);
 	}
-	for (i = 1; info_->_argv[i], i++)
+	for (i = 1; info_->_argv[i]; i++)
 	{
 		s = str_chr(info_->_argv[i], '=');
 		if (s)
