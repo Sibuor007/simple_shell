@@ -1,13 +1,13 @@
 #include "_Shell.h"
 
 /**
- * _h_shell - main shell loop
+ * hsh - main shell loop
  * @info_: the parameter & return info_ struct
  * @arg_v: the argument vector from main()
  * Return: 0 on success, 1 on error, or error code
  */
 
-int _h_shell(_info_pass_t *info_, char **arg_v)
+int hsh(_info_pass_t *info_, char **arg_v)
 {
 	ssize_t m = 0;
 	int blt_in_r = 0;
