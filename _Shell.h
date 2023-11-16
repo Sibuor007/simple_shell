@@ -197,7 +197,7 @@ int a_toi(char *);
 
 /* function prototypes for _Errors_b.c */
 int err_atoi(char *);
-void p_error(_info_pass_t *, char *, char *);
+void p_error(_info_pass_t *, char *);
 int p_delim(int, int);
 char *convert_num(long int, int, int);
 void rm_comments(char *);
