@@ -49,7 +49,7 @@ int str_cmp(char *s1, char *s2)
  *
  * Return: address of next character of the string after the prefix or NULL
  */
-char *_start(const char *str, const char *prefix)
+char *starts_with(const char *str, const char *prefix)
 {
 	while (*prefix)
 		if (*prefix++ != *str++)
