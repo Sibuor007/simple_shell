@@ -114,15 +114,9 @@ char *convert_num(long int digit, int b, int flags)
 		u = '-';
 	}
 
-<<<<<<< HEAD
 	_array = flags & _TO_LOWERCASE ? "0123456789abcdef" : "0123456789ABCDEF";
 	ptr_ = &buffer_[49];
-	ptr_ = '\0';
-=======
-	array = flags & _TO_LOWERCASE ? "0123456789abcdef" : "0123456789ABCDEF";
-	ptr = &buffer[49];
-	*ptr = '\0';
->>>>>>> origin/master
+	*ptr_ = '\0';
 
 	do {
 		*--ptr_ = _array[x % b];
