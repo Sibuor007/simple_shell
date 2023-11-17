@@ -1,5 +1,12 @@
 #include "_Shell.h"
 
+static char **_env_rn;
+
+char **get_env_rn(void)
+{
+	return _env_rn;
+}
+
 /**
  * e_env - function that prints the environment
  * @info_: a potential structure with arguments
@@ -85,7 +92,7 @@ int env_populate(_info_pass_t *info_)
 	size_t x;
 
 	for (x = 0; _env_rn[x]; x++)
-		node_add_end(&n_node, g_environ[x], 0);
+		node_add_end(&n_node, _env_rn[x], 0);
 	info_->_env_copy = n_node;
 	return (0);
 }
