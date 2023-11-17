@@ -41,7 +41,7 @@ str_lists_t *node_add(str_lists_t **_head, const char *ptr_string, int _data)
  * Return: final list
  */
 
-str_lists_t *node_add_end(str_lists_t **head, const char *ptr_string, int _data)
+str_lists_t *node_add_end(str_lists_t **head, const char *ptr_string, int data)
 {
 	str_lists_t *new_node, *node_0;
 
@@ -53,7 +53,7 @@ str_lists_t *node_add_end(str_lists_t **head, const char *ptr_string, int _data)
 	if (!new_node)
 		return (NULL);
 	mem_set((void *)new_node, 0, sizeof(str_lists_t));
-	new_node->_data = _data;
+	new_node->_data = data;
 	if (ptr_string)
 	{
 		new_node->ptr_string = str_up(ptr_string);
