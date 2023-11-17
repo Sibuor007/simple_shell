@@ -1,12 +1,5 @@
 #include "_Shell.h"
 
-static char **_env_rn;
-
-char **get_env_rn(void)
-{
-	return _env_rn;
-}
-
 /**
  * e_env - function that prints the environment
  * @info_: a potential structure with arguments

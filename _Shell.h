@@ -165,6 +165,9 @@ int s_setenv(_info_pass_t *);
 int u_unsetenv(_info_pass_t *);
 int env_populate(_info_pass_t *);
 
+/* function prototype for _Environ_b.c */
+char **get_env_rn(void);
+
 /* function prototypes for _Getenv.c */
 char **g_environ(_info_pass_t *);
 int unset_env(_info_pass_t *, char *);
