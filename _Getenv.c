@@ -8,13 +8,13 @@
 
 char **g_environ(_info_pass_t *info_)
 {
-	if (!info_->_env_rn || info_->change_env_rn)
+	if (!info_->environ || info_->change_env_rn)
 	{
-		info_->_env_rn =  str_list(info_->_env_copy);
+		info_->environ =  str_list(info_->_env_copy);
 		info_->change_env_rn = 0;
 	}
 
-	return (info_->_env_rn);
+	return (info_->environ);
 }
 
 /**
