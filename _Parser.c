@@ -60,7 +60,7 @@ char *_path_find(_info_pass_t *info, char *path_str, char *cmd)
 
 	if (!path_str)
 		return (NULL);
-	if ((str_len(cmd) > 2) && _start(cmd, "./"))
+	if ((str_len(cmd) > 2) && starts_with(cmd, "./"))
 	{
 		if (curr_cmd(info, cmd))
 			return (cmd);

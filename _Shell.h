@@ -124,7 +124,7 @@ int puts_def_f(char *ptr_string, int def_f);
 /* function prototypes for _String.c */
 int str_len(char *);
 int str_cmp(char *, char *);
-char *_start(const char *, const char *);
+char *starts_with(const char *, const char *);
 char *str_cat(char *, char *);
 
 /* function prototypes for _String_b.c */

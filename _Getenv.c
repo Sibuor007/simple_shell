@@ -35,7 +35,7 @@ int unset_env(_info_pass_t *info_, char *var_)
 
 	while (_node)
 	{
-		ptr = _start(_node->ptr_string, var_);
+		ptr = starts_with(_node->ptr_string, var_);
 		if (ptr && *ptr == '=')
 		{
 			info_->change_env_rn =  del_node_indx(&(info_->_env_copy), x);
@@ -75,7 +75,7 @@ int set_env(_info_pass_t *info_, char *var_, char *value_)
 	_node = info_->_env_copy;
 	while (_node)
 	{
-		ptr = _start(_node->ptr_string, var_);
+		ptr = starts_with(_node->ptr_string, var_);
 		if (ptr && *ptr == '=')
 		{
 			free(_node->ptr_string);

@@ -94,7 +94,7 @@ str_lists_t *node_beg(str_lists_t *head, char *prefix, char next_c)
 
 	while (head)
 	{
-		mp = _start(head->ptr_string, prefix);
+		mp = starts_with(head->ptr_string, prefix);
 		if (mp && ((next_c == -1) || (*mp == next_c)))
 			return (head);
 		head = head->_next;

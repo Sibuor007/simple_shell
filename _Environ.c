@@ -26,7 +26,7 @@ char *get_env(_info_pass_t *info_, const char *var_)
 
 	while (n_node)
 	{
-		ptr = _start(n_node->ptr_string, var_);
+		ptr = starts_with(n_node->ptr_string, var_);
 		if (ptr && *ptr)
 		return (ptr);
 		n_node = n_node->_next;
