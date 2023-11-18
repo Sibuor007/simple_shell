@@ -34,7 +34,7 @@
 #define FILE_HISTORY	"SIMPLE SHELL CMD HISTORY"
 #define MAX_HISTORY	4096
 
-char **_env_rn;
+extern char **_env_rn;
 
 /**
  * struct str_lists - for a linked list (singly)
@@ -85,8 +85,8 @@ typedef struct _info_pass
 	unsigned int _counts_line;
 	int _errno;
 	int flag_count;
-	char *_filename;
 	char **_env_rn;
+	char *_filename;
 	int change_env_rn;
 	int _status;
 
@@ -165,8 +165,6 @@ int s_setenv(_info_pass_t *);
 int u_unsetenv(_info_pass_t *);
 int env_populate(_info_pass_t *);
 
-/* function prototype for _Environ_b.c */
-char **get_env_rn(void);
 
 /* function prototypes for _Getenv.c */
 char **g_environ(_info_pass_t *);
