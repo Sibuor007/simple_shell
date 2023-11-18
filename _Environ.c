@@ -89,12 +89,8 @@ int env_populate(_info_pass_t *info_)
                 node_add_end(&n_node, _env_rn[x], 0);
         info_->_env_copy = n_node;
 
-<<<<<<< HEAD
 	for (x = 0; _env_rn[x]; x++)
-		node_add_end(&n_node, _env_rn[x], 0);
+		node_add_end(&n_node, environ[x], 0);
 	info_->_env_copy = n_node;
 	return (0);
-=======
-        return (0);
->>>>>>> 097be140a138c012105c23b730822d5f983afdac
 }
