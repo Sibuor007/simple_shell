@@ -34,7 +34,7 @@
 #define FILE_HISTORY	"SIMPLE SHELL CMD HISTORY"
 #define MAX_HISTORY	4096
 
-char **get_env_rn(void);
+char **_env_rn;
 
 /**
  * struct str_lists - for a linked list (singly)
